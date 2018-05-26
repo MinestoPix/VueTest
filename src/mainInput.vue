@@ -1,14 +1,14 @@
 <template>
-  <input v-bind:id="main" :autofocus="focus" v-model="text" />
+  <input v-bind:id="id" :autofocus="focus" v-model="text" />
 </template>
 
 <script>
 export default {
-  name: 'test',
+  name: 'mainInput',
   data () {
     return {
       text: '',
-      main: 'MainInput',
+      id: 'MainInput',
       focus: true
       }
   }
