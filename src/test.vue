@@ -1,5 +1,5 @@
 <template>
-  <h2>Hello from {{text}}</h2>
+  <input v-bind:id="main" :autofocus="focus" v-model="text" />
 </template>
 
 <script>
@@ -7,7 +7,9 @@ export default {
   name: 'test',
   data () {
     return {
-      text: ''
+      text: '',
+      main: 'MainInput',
+      focus: true
       }
   }
 }
