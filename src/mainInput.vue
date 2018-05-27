@@ -1,15 +1,15 @@
 <template>
-  <input v-bind:id="id" :autofocus="focus" v-model="text" />
+  <input id="MainInput" autofocus
+    v-bind:value="value"
+    v-on:input="$emit('input', $event.target.value)" />
 </template>
 
 <script>
 export default {
+  props: ['value'],
   name: 'mainInput',
   data () {
     return {
-      text: '',
-      id: 'MainInput',
-      focus: true
       }
   }
 }

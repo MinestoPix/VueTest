@@ -1,5 +1,8 @@
 <template>
-    <mainInput />
+    <div>
+        <mainInput v-model="text" />
+        {{text}}
+    </div>
 </template>
 
 <script>
@@ -9,6 +12,11 @@ export default {
     name:'app',
     components: {
         mainInput
+    },
+    data() {
+        return {
+            text: ""
+        }
     }
 }
 </script>

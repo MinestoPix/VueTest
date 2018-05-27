@@ -1,0 +1,1 @@
+* Decide on storage system - Electron store, Electron storage or lowdb
