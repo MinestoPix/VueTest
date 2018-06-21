@@ -1,64 +1,54 @@
 <template>
     <div>
         <mainInput v-model="text"
-            v-on:submit="saveAndDelete" />
+        v-on:submit="saveNew"/>
         <span v-show="text">{{entryType}} {{text}}</span>
-        <ul>
-            <li v-bind:key="index" v-for="(value, index) in entries">{{value}}</li>
-        </ul>
+        <entryList />
     </div>
 </template>
 
 <script>
-import mainInput from './mainInput.vue'
-import storage from 'electron-json-storage'
-import { strictEqual } from 'assert';
+import mainInput from "./components/mainInput.vue";
+import entryList from "./components/entryList.vue";
+import { setTimeout, clearTimeout } from 'timers';
+import store from './store/store.js'
 
 export default {
-    name:'app',
-    components: {
-        mainInput
-    },
-    watch: {
-        text: function(newValue, oldValue){
-            this.entryType="Quick note:"
-        }
-    },
-    methods: {
-        saveAndDelete: function(){
-            this.entries.push(this.text)
-            storage.get("notes", (err, data) => {
-                if (err){
-                    console.log(err)
-                }else if(data){
-                    var newArr = data.noteArr
-                    newArr.push(this.text)
-                    storage.set("notes", {noteArr: newArr}, err => {
-                        if (err){
-                            console.log(err)
-                        }else{
-                            this.text=""
-                        }
-                    })
-                }
-            })
-        }
-    },
-    mounted: function(){
-        storage.get("notes", (err, data) => {
-            if (err){
-                console.log(err)
-            }else if(data){
-                this.entries = data.noteArr
-            }
-        })
-    },
-    data() {
-        return {
-            text: "",
-            entryType: "",
-            entries: []
-        }
+  store,  name: "app",
+  components: {
+    mainInput,
+    entryList
+  },
+  mounted: function() {
+    this.$store.dispatch('initEntries')
+  },
+  watch: { /*
+    text: function(
+      newValue,
+      oldValue
+    ) {},
+        idCounter: function(newValue, oldValue){
+            console.log("idCounter updated:", newValue, oldValue)
+        }*/
+  },
+  methods: {
+    saveNew: function() {
+      if (this.text) {
+        this.$store.dispatch('addEntry', this.text)
+        this.text = ""
+      }
     }
-}
+  },
+  computed:{
+    entries(){
+      return this.$store.getters.getEntries
+    }
+  },
+  data() {
+    return {
+      text: "",
+      entryType: "Quick note:"
+    };
+  }
+};
 </script>

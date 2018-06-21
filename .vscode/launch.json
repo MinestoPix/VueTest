@@ -10,7 +10,7 @@
             "name": "Launch Electron",
             "runtimeExecutable": "${workspaceRoot}\\node_modules\\.bin\\electron-forge-vscode-win.cmd",
             "cwd": "${workspaceRoot}",
-            "timeout": 20000
+            "timeout": 40000
         }
     ]
 }

@@ -1,1 +1,2 @@
-* Decide on storage system - Electron store, Electron storage or lowdb
+* Storage system might have to be updated to lowdb
+* Decided for electron-json-storage

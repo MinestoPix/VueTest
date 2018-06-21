@@ -9,10 +9,6 @@
 <script>
 export default {
   props: ['value'],
-  name: 'mainInput',
-  data () {
-    return {
-      }
-  }
+  name: 'mainInput'
 }
 </script>
