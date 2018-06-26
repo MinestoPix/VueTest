@@ -39,14 +39,14 @@ export default {
       this.$store.commit("setEditId", id);
     },
     submitEntry: function() {
-      if(this.editId!==null){
-        this.$store.commit("clearEditId")
-        this.saveEntries()
+      if (this.editId !== null) {
+        this.$store.commit("clearEditId");
+        this.saveEntries();
       }
     },
     onInput: function(text, entry) {
       // console.log("onInput ran with text:", text, " and entry:", entry)
-      var payload = {entry, text}
+      var payload = { entry, text };
       this.$store.commit("setEntryText", payload);
       if (this.timeoutID) {
         clearTimeout(this.timeoutID);
@@ -54,12 +54,12 @@ export default {
       this.timeoutID = setTimeout(this.saveEntries, 5000);
     },
     saveEntries: function() {
-      console.log("Entries saved")
+      console.log("Entries saved");
       this.$store.dispatch("saveEntries");
-      this.timeoutID = null
+      this.timeoutID = null;
     },
-    deleteEntry: function(entry){
-      this.$store.commit("deleteEntry", entry)
+    deleteEntry: function(entry) {
+      this.$store.commit("deleteEntry", entry);
     }
   },
   computed: {

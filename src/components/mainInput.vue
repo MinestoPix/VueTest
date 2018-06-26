@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  props: ['value'],
-  name: 'mainInput'
-}
+  props: ["value"],
+  name: "mainInput"
+};
 </script>

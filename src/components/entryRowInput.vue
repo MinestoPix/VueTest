@@ -9,9 +9,9 @@
 
 <script>
 export default {
-    props: ["value"],
-    mounted(){
-        this.$refs.rowInput.focus()
-    }
-}
+  props: ["value"],
+  mounted() {
+    this.$refs.rowInput.focus();
+  }
+};
 </script>

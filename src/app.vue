@@ -10,19 +10,21 @@
 <script>
 import mainInput from "./components/mainInput.vue";
 import entryList from "./components/entryList.vue";
-import { setTimeout, clearTimeout } from 'timers';
-import store from './store/store.js'
+import { setTimeout, clearTimeout } from "timers";
+import store from "./store/store.js";
 
 export default {
-  store,  name: "app",
+  store,
+  name: "app",
   components: {
     mainInput,
     entryList
   },
   mounted: function() {
-    this.$store.dispatch('initEntries')
+    this.$store.dispatch("initEntries");
   },
-  watch: { /*
+  watch: {
+    /*
     text: function(
       newValue,
       oldValue
@@ -34,14 +36,14 @@ export default {
   methods: {
     saveNew: function() {
       if (this.text) {
-        this.$store.dispatch('addEntry', this.text)
-        this.text = ""
+        this.$store.dispatch("addEntry", this.text);
+        this.text = "";
       }
     }
   },
-  computed:{
-    entries(){
-      return this.$store.getters.getEntries
+  computed: {
+    entries() {
+      return this.$store.getters.getEntries;
     }
   },
   data() {

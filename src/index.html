@@ -3,8 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy"
-        content="script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval'">
   <title>Electron Vue</title>
 </head>
 
@@ -13,10 +12,10 @@
 </body>
 
 <script>
-import Vue from 'vue';
-import App from './app';
+  import Vue from 'vue';
+  import App from './app';
 
-const app = new Vue(App).$mount('#app');
+  const app = new Vue(App).$mount('#app');
 </script>
 
 <style>
@@ -36,11 +35,13 @@ const app = new Vue(App).$mount('#app');
     width: 100%;
     box-sizing: border-box;
   }
+
   #entryList {
     list-style-type: none;
     padding: 0;
     margin: 10px;
   }
+
   .entryRow {
     width: 100%;
     box-sizing: border-box;
@@ -50,6 +51,7 @@ const app = new Vue(App).$mount('#app');
     font-size: 16px;
     word-wrap: break-word;
   }
+
   .entryDel {
     float: right;
   }

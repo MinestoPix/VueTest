@@ -12,15 +12,15 @@
 </template>
 
 <script>
-import entryRowInput from "./entryRowInput.vue"
-import entryRowText from "./entryRowText.vue"
+import entryRowInput from "./entryRowInput.vue";
+import entryRowText from "./entryRowText.vue";
 
 export default {
-    props: ["myId", "editingId", "value"],
-    computed: {
-        editing: function(){
-            return this.myId === this.editingId ? entryRowInput : entryRowText
-        }
+  props: ["myId", "editingId", "value"],
+  computed: {
+    editing: function() {
+      return this.myId === this.editingId ? entryRowInput : entryRowText;
     }
+  }
 };
 </script>

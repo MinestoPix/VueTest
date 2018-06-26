@@ -1,4 +1,3 @@
-
 export default {
-    INIT_ENTRIES: 'initEntries'
-}
+  INIT_ENTRIES: "initEntries"
+};
