@@ -127,7 +127,7 @@ const store = new Vuex.Store({
         }
       });
     },
-    saveEntry: function(context, newValue, oldValue) {},
+    // saveEntry: function(context, newValue, oldValue) {},
     saveEntries: function(context) {
       // console.log("store.js: Saving Entries")
       storage.get("notes", (err, data) => {

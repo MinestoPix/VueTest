@@ -5,10 +5,21 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "chrome",
+            "request": "attach",
+            "name": "Attach to Chrome",
+            "port": 9223,
+            "webRoot": "${workspaceFolder}"
+        },
+        {
             "type": "node",
             "request": "launch",
             "name": "Launch Electron",
             "runtimeExecutable": "${workspaceRoot}\\node_modules\\.bin\\electron-forge-vscode-win.cmd",
+            "runtimeArgs": [
+                "--remote-debugging-port=9223",
+                "."
+            ],
             "cwd": "${workspaceRoot}",
             "timeout": 40000
         }

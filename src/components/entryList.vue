@@ -41,17 +41,20 @@ export default {
     submitEntry: function() {
       if (this.editId !== null) {
         this.$store.commit("clearEditId");
-        this.saveEntries();
+        this.saveEntriesSlow();
       }
     },
     onInput: function(text, entry) {
       // console.log("onInput ran with text:", text, " and entry:", entry)
       var payload = { entry, text };
       this.$store.commit("setEntryText", payload);
+      this.saveEntriesSlow();
+    },
+    saveEntriesSlow: function() {
       if (this.timeoutID) {
         clearTimeout(this.timeoutID);
       }
-      this.timeoutID = setTimeout(this.saveEntries, 5000);
+      this.timeoutID = setTimeout(this.saveEntries, 2000);
     },
     saveEntries: function() {
       console.log("Entries saved");

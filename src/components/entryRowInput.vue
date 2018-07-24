@@ -10,6 +10,7 @@
 <script>
 export default {
   props: ["value"],
+  name: "entryRowInput",
   mounted() {
     this.$refs.rowInput.focus();
   }

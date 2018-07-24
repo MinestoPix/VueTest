@@ -23,16 +23,17 @@ export default {
   mounted: function() {
     this.$store.dispatch("initEntries");
   },
+  /*
   watch: {
-    /*
     text: function(
       newValue,
       oldValue
     ) {},
         idCounter: function(newValue, oldValue){
             console.log("idCounter updated:", newValue, oldValue)
-        }*/
+        }
   },
+  */
   methods: {
     saveNew: function() {
       if (this.text) {
@@ -42,7 +43,7 @@ export default {
     }
   },
   computed: {
-    entries() {
+    entries: function() {
       return this.$store.getters.getEntries;
     }
   },
